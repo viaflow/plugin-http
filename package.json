@@ -1,0 +1,26 @@
+{
+  "name": "plugin-http",
+  "version": "1.0.0",
+  "description": "Http module for viaflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viaflow/plugin-http.git"
+  },
+  "author": "Guo Tuo <guotuo1024@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viaflow/plugin-http/issues"
+  },
+  "homepage": "https://github.com/viaflow/plugin-http#readme",
+  "dependencies": {
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "viaflow": {
+    "display": "HTTP"
+  }
+}
