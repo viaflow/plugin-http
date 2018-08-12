@@ -1,18 +1,18 @@
 import request from 'request-promise';
 
 export const Define = {
-    name: "HTTP",
+    name: 'HTTP',
     fields: [
         {
             name: 'method',
             display: 'Method',
             required: true,
-            type: String
+            type: String,
         }, {
             name: 'uri',
             display: 'URI',
             required: true,
-            type: String
+            type: String,
         }, {
             name: 'qs',
             display: 'Query String',
@@ -20,27 +20,27 @@ export const Define = {
         }, {
             name: 'headers',
             display: 'Headers',
-            type: Object
+            type: Object,
         }, {
             name: 'body',
             display: 'Body',
-            type: Object
+            type: Object,
         }, {
             name: 'extends',
             display: 'Extends',
-            type: Object
-        }
-    ]
-}
+            type: Object,
+        },
+    ],
+};
 
-export const Execute = async input => {
+export const Execute = (input) => {
     let options = {
         method: input.data.method,
         uri: input.data.uri,
         qs: input.data.qs,
         headers: input.data.headers,
-        body: input.data.body
+        body: input.data.body,
     };
     options = Object.assign(options, input.data.extends);
-    return await request(options);
-}
+    return request(options);
+};
