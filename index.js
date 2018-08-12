@@ -2,6 +2,7 @@ import request from 'request-promise';
 
 export const Define = {
     name: 'HTTP',
+    desc: 'Http plugin for viaflow by request/request',
     fields: [
         {
             name: 'method',
