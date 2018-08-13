@@ -34,7 +34,7 @@ export const Define = {
     ],
 };
 
-export const Execute = (input) => {
+export const Execute = async (input) => {
     let options = {
         method: input.data.method,
         uri: input.data.uri,
@@ -43,5 +43,10 @@ export const Execute = (input) => {
         body: input.data.body,
     };
     options = Object.assign(options, input.data.extends);
-    return request(options);
+    const response = await request(options);
+    const rst = {
+        code: response.statusCode && /^2/.test(`${response.statusCode}`),
+        data: response,
+    };
+    return rst;
 };
