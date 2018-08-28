@@ -35,18 +35,27 @@ export const Define = {
 };
 
 export const Execute = async (input) => {
-    let options = {
-        method: input.data.method,
-        uri: input.data.uri,
-        qs: input.data.qs,
-        headers: input.data.headers,
-        body: input.data.body,
-    };
-    options = Object.assign(options, input.data.extends);
-    const response = await request(options);
-    const rst = {
-        code: response.statusCode && /^2/.test(`${response.statusCode}`),
-        data: response,
-    };
-    return rst;
+    try {
+        let options = {
+            method: input.data.method,
+            uri: input.data.uri,
+            qs: input.data.qs,
+            headers: input.data.headers,
+            body: input.data.body,
+        };
+        options = Object.assign(options, input.data.extends);
+
+        const response = await request(options);
+        const rst = {
+            code: true,
+            data: response.toString(),
+        };
+        return rst;
+    } catch (exp) {
+        return {
+            code: false,
+            error: exp.message,
+            data: {}
+        }
+    }
 };
